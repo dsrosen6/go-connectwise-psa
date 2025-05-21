@@ -29,3 +29,12 @@ func TestClient_GetBoards(t *testing.T) {
 		t.Log(board.Name)
 	}
 }
+
+func TestClient_GetBoard(t *testing.T) {
+	board, err := testClient.GetBoard(testCtx, 1, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	t.Log("Received board:", board.Name)
+}
