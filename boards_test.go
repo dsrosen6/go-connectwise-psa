@@ -19,7 +19,8 @@ var (
 )
 
 func TestClient_GetBoards(t *testing.T) {
-	boards, err := testClient.GetBoards(testCtx)
+	params := map[string]string{"pagesize": "1", "conditions": "name='Projects'"}
+	boards, err := testClient.GetBoards(testCtx, params)
 	if err != nil {
 		t.Fatal(err)
 	}

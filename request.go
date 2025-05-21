@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
@@ -24,7 +25,18 @@ type doRequestResult struct {
 	statusCode int
 }
 
-func (c *Client) apiRequest(ctx context.Context, method, endpoint string, payload io.Reader, target interface{}) error {
+func addQueryParams(endpoint string, params map[string]string) string {
+	u, _ := url.Parse(endpoint)
+	q := u.Query()
+	for k, v := range params {
+		q.Set(k, v)
+	}
+	u.RawQuery = q.Encode()
+	return u.String()
+}
+
+func (c *Client) apiRequest(ctx context.Context, method, endpoint string, params map[string]string, payload io.Reader, target interface{}) error {
+	endpoint = addQueryParams(endpoint, params)
 	result, err := c.doRequest(ctx, method, createFullUrl(endpoint), payload)
 	if err != nil {
 		return err
@@ -43,9 +55,9 @@ func (c *Client) apiRequest(ctx context.Context, method, endpoint string, payloa
 	return nil
 }
 
-func (c *Client) apiRequestPaginated(ctx context.Context, method, url string, body io.Reader, handlePage func(data []byte) error) error {
+func (c *Client) apiRequestPaginated(ctx context.Context, method, fullUrl string, body io.Reader, handlePage func(data []byte) error) error {
 	for {
-		result, err := c.doRequest(ctx, method, url, body)
+		result, err := c.doRequest(ctx, method, fullUrl, body)
 		if err != nil {
 			return err
 		}
@@ -63,16 +75,16 @@ func (c *Client) apiRequestPaginated(ctx context.Context, method, url string, bo
 		if !found {
 			break
 		}
-		url = nextUrl
+		fullUrl = nextUrl
 	}
 
 	return nil
 }
 
-func apiRequestPaginatedIntoSlice[T any](ctx context.Context, c *Client, method, endpoint string, body io.Reader) ([]T, error) {
+func apiRequestPaginatedIntoSlice[T any](ctx context.Context, c *Client, method, endpoint string, params map[string]string, body io.Reader) ([]T, error) {
 	var allItems []T
-	u := createFullUrl(endpoint)
-	err := c.apiRequestPaginated(ctx, method, u, body, func(data []byte) error {
+	endpoint = addQueryParams(endpoint, params)
+	err := c.apiRequestPaginated(ctx, method, createFullUrl(endpoint), body, func(data []byte) error {
 		var pageItems []T
 		if err := json.Unmarshal(data, &pageItems); err != nil {
 			return fmt.Errorf("unmarshaling page: %w", err)
@@ -84,8 +96,8 @@ func apiRequestPaginatedIntoSlice[T any](ctx context.Context, c *Client, method,
 	return allItems, err
 }
 
-func (c *Client) doRequest(ctx context.Context, method, url string, body io.Reader) (*doRequestResult, error) {
-	req, err := http.NewRequestWithContext(ctx, method, url, body)
+func (c *Client) doRequest(ctx context.Context, method, fullUrl string, body io.Reader) (*doRequestResult, error) {
+	req, err := http.NewRequestWithContext(ctx, method, fullUrl, body)
 	if err != nil {
 		return nil, fmt.Errorf("creating the request: %w", err)
 	}
