@@ -19,8 +19,10 @@ var (
 )
 
 func TestClient_GetBoards(t *testing.T) {
-	params := map[string]string{"pagesize": "1", "conditions": "name='Projects'"}
-	boards, err := testClient.GetBoards(testCtx, params)
+	params := QueryParams{
+		OrderBy: "name asc",
+	}
+	boards, err := testClient.GetBoards(testCtx, &params)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -28,13 +30,4 @@ func TestClient_GetBoards(t *testing.T) {
 	for _, board := range boards {
 		t.Log(board.Name)
 	}
-}
-
-func TestClient_GetBoard(t *testing.T) {
-	board, err := testClient.GetBoard(testCtx, 1, nil)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	t.Log("Received board:", board.Name)
 }

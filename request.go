@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -20,27 +21,42 @@ type doRequestResult struct {
 	statusCode int
 }
 
-func (c *Client) apiRequest(ctx context.Context, method, endpoint string, params map[string]string, payload io.Reader, target interface{}) error {
-	endpoint = addQueryParams(endpoint, params)
-	result, err := c.doRequest(ctx, method, createFullUrl(endpoint), payload)
+func apiRequestNonPaginated[T any](ctx context.Context, client *Client, method, endpoint string, params *QueryParams, body io.Reader) (*T, error) {
+	endpoint = addQueryParams(endpoint, *params)
+	result, err := client.doRequest(ctx, method, createFullUrl(endpoint), body)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	if result.statusCode < 200 || result.statusCode >= 300 {
-		return fmt.Errorf("bad status: %d", result.statusCode)
+		return nil, fmt.Errorf("bad status: %d", result.statusCode)
 	}
 
-	if target != nil {
-		if err := json.Unmarshal(result.data, target); err != nil {
-			return fmt.Errorf("unmarshaling the response to json: %w", err)
-		}
+	var target T
+	if err := json.Unmarshal(result.data, &target); err != nil {
+		return nil, fmt.Errorf("unmarshaling the response to json: %w", err)
 	}
 
-	return nil
+	return &target, nil
 }
 
-func (c *Client) apiRequestPaginated(ctx context.Context, method, fullUrl string, body io.Reader, handlePage func(data []byte) error) error {
+func apiRequestPaginated[T any](ctx context.Context, c *Client, method, endpoint string, params *QueryParams, body io.Reader) ([]T, error) {
+	endpoint = addQueryParams(endpoint, *params)
+	var allItems []T
+	err := c.doPaginatedRequest(ctx, method, createFullUrl(endpoint), body, func(data []byte) error {
+		var pageItems []T
+		if err := json.Unmarshal(data, &pageItems); err != nil {
+			return fmt.Errorf("unmarshaling page: %w", err)
+		}
+		allItems = append(allItems, pageItems...)
+		return nil
+	})
+
+	return allItems, err
+}
+
+func (c *Client) doPaginatedRequest(ctx context.Context, method, fullUrl string, body io.Reader, handlePage func(data []byte) error) error {
+	log.Println("URL: ", fullUrl)
 	for {
 		result, err := c.doRequest(ctx, method, fullUrl, body)
 		if err != nil {
@@ -64,21 +80,6 @@ func (c *Client) apiRequestPaginated(ctx context.Context, method, fullUrl string
 	}
 
 	return nil
-}
-
-func apiRequestPaginatedIntoSlice[T any](ctx context.Context, c *Client, method, endpoint string, params map[string]string, body io.Reader) ([]T, error) {
-	var allItems []T
-	endpoint = addQueryParams(endpoint, params)
-	err := c.apiRequestPaginated(ctx, method, createFullUrl(endpoint), body, func(data []byte) error {
-		var pageItems []T
-		if err := json.Unmarshal(data, &pageItems); err != nil {
-			return fmt.Errorf("unmarshaling page: %w", err)
-		}
-		allItems = append(allItems, pageItems...)
-		return nil
-	})
-
-	return allItems, err
 }
 
 func (c *Client) doRequest(ctx context.Context, method, fullUrl string, body io.Reader) (*doRequestResult, error) {
@@ -131,10 +132,11 @@ func parseLinkHeader(linkHeader, rel string) (string, bool) {
 	return "", false
 }
 
-func addQueryParams(endpoint string, params map[string]string) string {
+func addQueryParams(endpoint string, params QueryParams) string {
 	u, _ := url.Parse(endpoint)
+	p := params.ToMap()
 	q := u.Query()
-	for k, v := range params {
+	for k, v := range p {
 		q.Set(k, v)
 	}
 	u.RawQuery = q.Encode()
