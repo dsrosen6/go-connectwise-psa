@@ -14,25 +14,10 @@ const (
 	baseUrl = "https://api-na.myconnectwise.net/v4_6_release/apis/3.0"
 )
 
-type PaginationDetails struct {
-	HasMorePages bool
-	NextLink     string
-}
-
 type doRequestResult struct {
 	data       []byte
 	header     http.Header
 	statusCode int
-}
-
-func addQueryParams(endpoint string, params map[string]string) string {
-	u, _ := url.Parse(endpoint)
-	q := u.Query()
-	for k, v := range params {
-		q.Set(k, v)
-	}
-	u.RawQuery = q.Encode()
-	return u.String()
 }
 
 func (c *Client) apiRequest(ctx context.Context, method, endpoint string, params map[string]string, payload io.Reader, target interface{}) error {
@@ -102,10 +87,7 @@ func (c *Client) doRequest(ctx context.Context, method, fullUrl string, body io.
 		return nil, fmt.Errorf("creating the request: %w", err)
 	}
 
-	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("clientId", c.clientId)
-	req.Header.Set("Authorization", c.encodedCreds)
+	c.setStandardHeaders(req)
 
 	res, err := c.httpClient.Do(req)
 	if err != nil {
@@ -125,6 +107,13 @@ func (c *Client) doRequest(ctx context.Context, method, fullUrl string, body io.
 	}, nil
 }
 
+func (c *Client) setStandardHeaders(req *http.Request) {
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("clientId", c.clientId)
+	req.Header.Set("Authorization", c.encodedCreds)
+}
+
 func parseLinkHeader(linkHeader, rel string) (string, bool) {
 	links := strings.Split(linkHeader, ",")
 	for _, link := range links {
@@ -140,6 +129,16 @@ func parseLinkHeader(linkHeader, rel string) (string, bool) {
 	}
 
 	return "", false
+}
+
+func addQueryParams(endpoint string, params map[string]string) string {
+	u, _ := url.Parse(endpoint)
+	q := u.Query()
+	for k, v := range params {
+		q.Set(k, v)
+	}
+	u.RawQuery = q.Encode()
+	return u.String()
 }
 
 func createFullUrl(endpoint string) string {
