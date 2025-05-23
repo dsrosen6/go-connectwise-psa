@@ -40,6 +40,11 @@ func apiRequestNonPaginated[T any](ctx context.Context, client *Client, method, 
 		return nil, fmt.Errorf("bad status: %d", result.statusCode)
 	}
 
+	if len(result.data) == 0 {
+		var zero T
+		return &zero, nil
+	}
+
 	var target T
 	if err := json.Unmarshal(result.data, &target); err != nil {
 		return nil, fmt.Errorf("unmarshaling the response to json: %w", err)
@@ -110,7 +115,12 @@ func (c *Client) doRequest(ctx context.Context, method, fullUrl string, body io.
 	if err != nil {
 		return nil, fmt.Errorf("sending the request: %w", err)
 	}
-	defer res.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Printf("error closing response body: %v", err)
+		}
+	}(res.Body)
 
 	data, err := io.ReadAll(res.Body)
 	if err != nil {
