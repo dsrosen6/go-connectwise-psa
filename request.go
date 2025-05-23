@@ -21,8 +21,16 @@ type doRequestResult struct {
 	statusCode int
 }
 
-func apiRequestNonPaginated[T any](ctx context.Context, client *Client, method, endpoint string, params *QueryParams, body io.Reader) (*T, error) {
-	endpoint = addQueryParams(endpoint, *params)
+func apiRequestNonPaginated[T any](ctx context.Context, client *Client, method, endpoint string, params *QueryParams, payload interface{}) (*T, error) {
+	if params != nil {
+		endpoint = addQueryParams(endpoint, *params)
+	}
+
+	body, err := marshalBody(payload)
+	if err != nil {
+		return nil, err
+	}
+
 	result, err := client.doRequest(ctx, method, createFullUrl(endpoint), body)
 	if err != nil {
 		return nil, err
@@ -40,10 +48,18 @@ func apiRequestNonPaginated[T any](ctx context.Context, client *Client, method, 
 	return &target, nil
 }
 
-func apiRequestPaginated[T any](ctx context.Context, c *Client, method, endpoint string, params *QueryParams, body io.Reader) ([]T, error) {
-	endpoint = addQueryParams(endpoint, *params)
+func apiRequestPaginated[T any](ctx context.Context, c *Client, method, endpoint string, params *QueryParams, payload interface{}) ([]T, error) {
+	if params != nil {
+		endpoint = addQueryParams(endpoint, *params)
+	}
+
+	body, err := marshalBody(payload)
+	if err != nil {
+		return nil, err
+	}
+
 	var allItems []T
-	err := c.doPaginatedRequest(ctx, method, createFullUrl(endpoint), body, func(data []byte) error {
+	err = c.doPaginatedRequest(ctx, method, createFullUrl(endpoint), body, func(data []byte) error {
 		var pageItems []T
 		if err := json.Unmarshal(data, &pageItems); err != nil {
 			return fmt.Errorf("unmarshaling page: %w", err)
@@ -113,6 +129,19 @@ func (c *Client) setStandardHeaders(req *http.Request) {
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("clientId", c.clientId)
 	req.Header.Set("Authorization", c.encodedCreds)
+}
+
+func marshalBody(body interface{}) (io.Reader, error) {
+	if body == nil {
+		return nil, nil
+	}
+
+	data, err := json.Marshal(body)
+	if err != nil {
+		return nil, fmt.Errorf("marshaling the body: %w", err)
+	}
+
+	return strings.NewReader(string(data)), nil
 }
 
 func parseLinkHeader(linkHeader, rel string) (string, bool) {
