@@ -95,4 +95,22 @@ func (c *Client) PatchTicket(ctx context.Context, ticketId int, patchOps []Patch
 	return apiRequestNonPaginated[types.Ticket](ctx, c, "PATCH", ticketIdEndpoint(ticketId), nil, patchOps)
 }
 
+// ListServiceTicketNotes gets all ticket notes, regardless of if they have a time entry.
+//
+// This is most likely the one you want to use unless you consistently uncheck the time entry box.
+func (c *Client) ListServiceTicketNotes(ctx context.Context, ticketId int, params *QueryParams) ([]types.ServiceTicketNote, error) {
+	return apiRequestPaginated[types.ServiceTicketNote](ctx, c, "GET", ticketIdEndpoint(ticketId)+"/allNotes", params, nil)
+}
+
+// ListServiceNotes gets all notes that are not time entry.
+//
+// Not recommended since you will probably get what you need through ListServiceTicketNotes
+func (c *Client) ListServiceNotes(ctx context.Context, ticketId int, params *QueryParams) ([]types.ServiceNote, error) {
+	return apiRequestPaginated[types.ServiceNote](ctx, c, "GET", ticketIdEndpoint(ticketId)+"notes", params, nil)
+}
+
+func (c *Client) PostServiceTicketNote(ctx context.Context, ticketId int, note *types.ServiceNote) (*types.ServiceNote, error) {
+	return apiRequestNonPaginated[types.ServiceNote](ctx, c, "POST", ticketIdEndpoint(ticketId)+"notes", nil, note)
+}
+
 // TODO: Rest of Ticket Endpoints
