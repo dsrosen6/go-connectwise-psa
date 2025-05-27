@@ -3,1107 +3,1103 @@ package connectwise
 import "time"
 
 type Board struct {
-	Id       int    `json:"id"`
+	Id       int    `json:"id,omitempty"`
 	Name     string `json:"name"`
 	Location struct {
 		Id   int    `json:"id"`
 		Name string `json:"name"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
 	} `json:"location"`
 	Department struct {
 		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
+		Identifier string `json:"identifier,omitempty"`
 		Name       string `json:"name"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
 	} `json:"department"`
-	InactiveFlag    bool `json:"inactiveFlag"`
+	InactiveFlag    bool `json:"inactiveFlag,omitempty"`
 	SignOffTemplate struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"signOffTemplate"`
-	SendToContactFlag bool `json:"sendToContactFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"signOffTemplate,omitempty"`
+	SendToContactFlag bool `json:"sendToContactFlag,omitempty"`
 	ContactTemplate   struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
-		Type       string `json:"type"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
+		Type       string `json:"type,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"contactTemplate"`
-	SendToResourceFlag bool `json:"sendToResourceFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"contactTemplate,omitempty"`
+	SendToResourceFlag bool `json:"sendToResourceFlag,omitempty"`
 	ResourceTemplate   struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
-		Type       string `json:"type"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
+		Type       string `json:"type,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"resourceTemplate"`
-	ProjectFlag          bool `json:"projectFlag"`
-	ShowDependenciesFlag bool `json:"showDependenciesFlag"`
-	ShowEstimatesFlag    bool `json:"showEstimatesFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"resourceTemplate,omitempty"`
+	ProjectFlag          bool `json:"projectFlag,omitempty"`
+	ShowDependenciesFlag bool `json:"showDependenciesFlag,omitempty"`
+	ShowEstimatesFlag    bool `json:"showEstimatesFlag,omitempty"`
 	BoardIcon            struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"boardIcon"`
-	BillTicketsAfterClosedFlag    bool `json:"billTicketsAfterClosedFlag"`
-	BillTicketSeparatelyFlag      bool `json:"billTicketSeparatelyFlag"`
-	BillUnapprovedTimeExpenseFlag bool `json:"billUnapprovedTimeExpenseFlag"`
-	OverrideBillingSetupFlag      bool `json:"overrideBillingSetupFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"boardIcon,omitempty"`
+	BillTicketsAfterClosedFlag    bool `json:"billTicketsAfterClosedFlag,omitempty"`
+	BillTicketSeparatelyFlag      bool `json:"billTicketSeparatelyFlag,omitempty"`
+	BillUnapprovedTimeExpenseFlag bool `json:"billUnapprovedTimeExpenseFlag,omitempty"`
+	OverrideBillingSetupFlag      bool `json:"overrideBillingSetupFlag,omitempty"`
 	DispatchMember                struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"dispatchMember"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"dispatchMember,omitempty"`
 	ServiceManagerMember struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"serviceManagerMember"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"serviceManagerMember,omitempty"`
 	DutyManagerMember struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"dutyManagerMember"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"dutyManagerMember,omitempty"`
 	OncallMember struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"oncallMember"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"oncallMember,omitempty"`
 	WorkRole struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"workRole"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"workRole,omitempty"`
 	WorkType struct {
-		Id              int    `json:"id"`
-		Name            string `json:"name"`
-		UtilizationFlag bool   `json:"utilizationFlag"`
+		Id              int    `json:"id,omitempty"`
+		Name            string `json:"name,omitempty"`
+		UtilizationFlag bool   `json:"utilizationFlag,omitempty"`
 		Info            struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"workType"`
-	BillTime        string `json:"billTime"`
-	BillExpense     string `json:"billExpense"`
-	BillProduct     string `json:"billProduct"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"workType,omitempty"`
+	BillTime        string `json:"billTime,omitempty"`
+	BillExpense     string `json:"billExpense,omitempty"`
+	BillProduct     string `json:"billProduct,omitempty"`
 	AutoCloseStatus struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
-		Sort int    `json:"sort"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
+		Sort int    `json:"sort,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"autoCloseStatus"`
-	AutoAssignNewTicketsFlag            bool   `json:"autoAssignNewTicketsFlag"`
-	AutoAssignNewECTicketsFlag          bool   `json:"autoAssignNewECTicketsFlag"`
-	AutoAssignNewPortalTicketsFlag      bool   `json:"autoAssignNewPortalTicketsFlag"`
-	DiscussionsLockedFlag               bool   `json:"discussionsLockedFlag"`
-	TimeEntryLockedFlag                 bool   `json:"timeEntryLockedFlag"`
-	NotifyEmailFrom                     string `json:"notifyEmailFrom"`
-	NotifyEmailFromName                 string `json:"notifyEmailFromName"`
-	ClosedLoopDiscussionsFlag           bool   `json:"closedLoopDiscussionsFlag"`
-	ClosedLoopResolutionFlag            bool   `json:"closedLoopResolutionFlag"`
-	ClosedLoopInternalAnalysisFlag      bool   `json:"closedLoopInternalAnalysisFlag"`
-	TimeEntryDiscussionFlag             bool   `json:"timeEntryDiscussionFlag"`
-	TimeEntryResolutionFlag             bool   `json:"timeEntryResolutionFlag"`
-	TimeEntryInternalAnalysisFlag       bool   `json:"timeEntryInternalAnalysisFlag"`
-	ProblemSort                         string `json:"problemSort"`
-	ResolutionSort                      string `json:"resolutionSort"`
-	InternalAnalysisSort                string `json:"internalAnalysisSort"`
-	EmailConnectorAllowReopenClosedFlag bool   `json:"emailConnectorAllowReopenClosedFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"autoCloseStatus,omitempty"`
+	AutoAssignNewTicketsFlag            bool   `json:"autoAssignNewTicketsFlag,omitempty"`
+	AutoAssignNewECTicketsFlag          bool   `json:"autoAssignNewECTicketsFlag,omitempty"`
+	AutoAssignNewPortalTicketsFlag      bool   `json:"autoAssignNewPortalTicketsFlag,omitempty"`
+	DiscussionsLockedFlag               bool   `json:"discussionsLockedFlag,omitempty"`
+	TimeEntryLockedFlag                 bool   `json:"timeEntryLockedFlag,omitempty"`
+	NotifyEmailFrom                     string `json:"notifyEmailFrom,omitempty"`
+	NotifyEmailFromName                 string `json:"notifyEmailFromName,omitempty"`
+	ClosedLoopDiscussionsFlag           bool   `json:"closedLoopDiscussionsFlag,omitempty"`
+	ClosedLoopResolutionFlag            bool   `json:"closedLoopResolutionFlag,omitempty"`
+	ClosedLoopInternalAnalysisFlag      bool   `json:"closedLoopInternalAnalysisFlag,omitempty"`
+	TimeEntryDiscussionFlag             bool   `json:"timeEntryDiscussionFlag,omitempty"`
+	TimeEntryResolutionFlag             bool   `json:"timeEntryResolutionFlag,omitempty"`
+	TimeEntryInternalAnalysisFlag       bool   `json:"timeEntryInternalAnalysisFlag,omitempty"`
+	ProblemSort                         string `json:"problemSort,omitempty"`
+	ResolutionSort                      string `json:"resolutionSort,omitempty"`
+	InternalAnalysisSort                string `json:"internalAnalysisSort,omitempty"`
+	EmailConnectorAllowReopenClosedFlag bool   `json:"emailConnectorAllowReopenClosedFlag,omitempty"`
 	EmailConnectorReopenStatus          struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
-		Sort int    `json:"sort"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
+		Sort int    `json:"sort,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"emailConnectorReopenStatus"`
-	EmailConnectorReopenResourcesFlag         bool   `json:"emailConnectorReopenResourcesFlag"`
-	EmailConnectorNewTicketNoMatchFlag        bool   `json:"emailConnectorNewTicketNoMatchFlag"`
-	EmailConnectorNeverReopenByDaysFlag       bool   `json:"emailConnectorNeverReopenByDaysFlag"`
-	EmailConnectorReopenDaysLimit             int    `json:"emailConnectorReopenDaysLimit"`
-	EmailConnectorNeverReopenByDaysClosedFlag bool   `json:"emailConnectorNeverReopenByDaysClosedFlag"`
-	EmailConnectorReopenDaysClosedLimit       int    `json:"emailConnectorReopenDaysClosedLimit"`
-	UseMemberDisplayNameFlag                  bool   `json:"useMemberDisplayNameFlag"`
-	SendToCCFlag                              bool   `json:"sendToCCFlag"`
-	AutoAssignTicketOwnerFlag                 bool   `json:"autoAssignTicketOwnerFlag"`
-	AutoAssignLimitFlag                       bool   `json:"autoAssignLimitFlag"`
-	AutoAssignLimitAmount                     int    `json:"autoAssignLimitAmount"`
-	ClosedLoopAllFlag                         bool   `json:"closedLoopAllFlag"`
-	PercentageCalculation                     string `json:"percentageCalculation"`
-	AllSort                                   string `json:"allSort"`
-	MarkFirstNoteIssueFlag                    bool   `json:"markFirstNoteIssueFlag"`
-	RestrictBoardByDefaultFlag                bool   `json:"restrictBoardByDefaultFlag"`
-	SendToBundledFlag                         bool   `json:"sendToBundledFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"emailConnectorReopenStatus,omitempty"`
+	EmailConnectorReopenResourcesFlag         bool   `json:"emailConnectorReopenResourcesFlag,omitempty"`
+	EmailConnectorNewTicketNoMatchFlag        bool   `json:"emailConnectorNewTicketNoMatchFlag,omitempty"`
+	EmailConnectorNeverReopenByDaysFlag       bool   `json:"emailConnectorNeverReopenByDaysFlag,omitempty"`
+	EmailConnectorReopenDaysLimit             int    `json:"emailConnectorReopenDaysLimit,omitempty"`
+	EmailConnectorNeverReopenByDaysClosedFlag bool   `json:"emailConnectorNeverReopenByDaysClosedFlag,omitempty"`
+	EmailConnectorReopenDaysClosedLimit       int    `json:"emailConnectorReopenDaysClosedLimit,omitempty"`
+	UseMemberDisplayNameFlag                  bool   `json:"useMemberDisplayNameFlag,omitempty"`
+	SendToCCFlag                              bool   `json:"sendToCCFlag,omitempty"`
+	AutoAssignTicketOwnerFlag                 bool   `json:"autoAssignTicketOwnerFlag,omitempty"`
+	AutoAssignLimitFlag                       bool   `json:"autoAssignLimitFlag,omitempty"`
+	AutoAssignLimitAmount                     int    `json:"autoAssignLimitAmount,omitempty"`
+	ClosedLoopAllFlag                         bool   `json:"closedLoopAllFlag,omitempty"`
+	PercentageCalculation                     string `json:"percentageCalculation,omitempty"`
+	AllSort                                   string `json:"allSort,omitempty"`
+	MarkFirstNoteIssueFlag                    bool   `json:"markFirstNoteIssueFlag,omitempty"`
+	RestrictBoardByDefaultFlag                bool   `json:"restrictBoardByDefaultFlag,omitempty"`
+	SendToBundledFlag                         bool   `json:"sendToBundledFlag,omitempty"`
 	Info                                      struct {
-		AdditionalProp1 string `json:"additionalProp1"`
-		AdditionalProp2 string `json:"additionalProp2"`
-		AdditionalProp3 string `json:"additionalProp3"`
-	} `json:"_info"`
+		AdditionalProp1 string `json:"additionalProp1,omitempty"`
+		AdditionalProp2 string `json:"additionalProp2,omitempty"`
+		AdditionalProp3 string `json:"additionalProp3,omitempty"`
+	} `json:"_info,omitempty"`
 }
-
 type Callback struct {
-	Id                   int    `json:"id"`
-	Description          string `json:"description"`
+	Id                   int    `json:"id,omitempty"`
+	Description          string `json:"description,omitempty"`
 	Url                  string `json:"url"`
 	ObjectId             int    `json:"objectId"`
 	Type                 string `json:"type"`
 	Level                string `json:"level"`
-	MemberId             int    `json:"memberId"`
-	PayloadVersion       string `json:"payloadVersion"`
-	InactiveFlag         bool   `json:"inactiveFlag"`
-	IsSoapCallbackFlag   bool   `json:"isSoapCallbackFlag"`
-	IsSelfSuppressedFlag bool   `json:"isSelfSuppressedFlag"`
-	ConnectWiseID        string `json:"connectWiseID"`
+	MemberId             int    `json:"memberId,omitempty"`
+	PayloadVersion       string `json:"payloadVersion,omitempty"`
+	InactiveFlag         bool   `json:"inactiveFlag,omitempty"`
+	IsSoapCallbackFlag   bool   `json:"isSoapCallbackFlag,omitempty"`
+	IsSelfSuppressedFlag bool   `json:"isSelfSuppressedFlag,omitempty"`
+	ConnectWiseID        string `json:"connectWiseID,omitempty"`
 	Info                 struct {
-		AdditionalProp1 string `json:"additionalProp1"`
-		AdditionalProp2 string `json:"additionalProp2"`
-		AdditionalProp3 string `json:"additionalProp3"`
-	} `json:"_info"`
+		AdditionalProp1 string `json:"additionalProp1,omitempty"`
+		AdditionalProp2 string `json:"additionalProp2,omitempty"`
+		AdditionalProp3 string `json:"additionalProp3,omitempty"`
+	} `json:"_info,omitempty"`
 }
 
 type Company struct {
-	Id         int    `json:"id"`
+	Id         int    `json:"id,omitempty"`
 	Identifier string `json:"identifier"`
 	Name       string `json:"name"`
 	Status     struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"status"`
-	AddressLine1 string `json:"addressLine1"`
-	AddressLine2 string `json:"addressLine2"`
-	City         string `json:"city"`
-	State        string `json:"state"`
-	Zip          string `json:"zip"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"status,omitempty"`
+	AddressLine1 string `json:"addressLine1,omitempty"`
+	AddressLine2 string `json:"addressLine2,omitempty"`
+	City         string `json:"city,omitempty"`
+	State        string `json:"state,omitempty"`
+	Zip          string `json:"zip,omitempty"`
 	Country      struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"country"`
-	PhoneNumber string `json:"phoneNumber"`
-	FaxNumber   string `json:"faxNumber"`
-	Website     string `json:"website"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"country,omitempty"`
+	PhoneNumber string `json:"phoneNumber,omitempty"`
+	FaxNumber   string `json:"faxNumber,omitempty"`
+	Website     string `json:"website,omitempty"`
 	Territory   struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"territory"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"territory,omitempty"`
 	Market struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"market"`
-	AccountNumber  string `json:"accountNumber"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"market,omitempty"`
+	AccountNumber  string `json:"accountNumber,omitempty"`
 	DefaultContact struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"defaultContact"`
-	DateAcquired time.Time `json:"dateAcquired"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"defaultContact,omitempty"`
+	DateAcquired time.Time `json:"dateAcquired,omitempty"`
 	SicCode      struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"sicCode"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"sicCode,omitempty"`
 	ParentCompany struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"parentCompany"`
-	AnnualRevenue     int `json:"annualRevenue"`
-	NumberOfEmployees int `json:"numberOfEmployees"`
-	YearEstablished   int `json:"yearEstablished"`
-	RevenueYear       int `json:"revenueYear"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"parentCompany,omitempty"`
+	AnnualRevenue     int `json:"annualRevenue,omitempty"`
+	NumberOfEmployees int `json:"numberOfEmployees,omitempty"`
+	YearEstablished   int `json:"yearEstablished,omitempty"`
+	RevenueYear       int `json:"revenueYear,omitempty"`
 	OwnershipType     struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"ownershipType"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"ownershipType,omitempty"`
 	TimeZoneSetup struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"timeZoneSetup"`
-	LeadSource      string `json:"leadSource"`
-	LeadFlag        bool   `json:"leadFlag"`
-	UnsubscribeFlag bool   `json:"unsubscribeFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"timeZoneSetup,omitempty"`
+	LeadSource      string `json:"leadSource,omitempty"`
+	LeadFlag        bool   `json:"leadFlag,omitempty"`
+	UnsubscribeFlag bool   `json:"unsubscribeFlag,omitempty"`
 	Calendar        struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"calendar"`
-	UserDefinedField1  string `json:"userDefinedField1"`
-	UserDefinedField2  string `json:"userDefinedField2"`
-	UserDefinedField3  string `json:"userDefinedField3"`
-	UserDefinedField4  string `json:"userDefinedField4"`
-	UserDefinedField5  string `json:"userDefinedField5"`
-	UserDefinedField6  string `json:"userDefinedField6"`
-	UserDefinedField7  string `json:"userDefinedField7"`
-	UserDefinedField8  string `json:"userDefinedField8"`
-	UserDefinedField9  string `json:"userDefinedField9"`
-	UserDefinedField10 string `json:"userDefinedField10"`
-	VendorIdentifier   string `json:"vendorIdentifier"`
-	TaxIdentifier      string `json:"taxIdentifier"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"calendar,omitempty"`
+	UserDefinedField1  string `json:"userDefinedField1,omitempty"`
+	UserDefinedField2  string `json:"userDefinedField2,omitempty"`
+	UserDefinedField3  string `json:"userDefinedField3,omitempty"`
+	UserDefinedField4  string `json:"userDefinedField4,omitempty"`
+	UserDefinedField5  string `json:"userDefinedField5,omitempty"`
+	UserDefinedField6  string `json:"userDefinedField6,omitempty"`
+	UserDefinedField7  string `json:"userDefinedField7,omitempty"`
+	UserDefinedField8  string `json:"userDefinedField8,omitempty"`
+	UserDefinedField9  string `json:"userDefinedField9,omitempty"`
+	UserDefinedField10 string `json:"userDefinedField10,omitempty"`
+	VendorIdentifier   string `json:"vendorIdentifier,omitempty"`
+	TaxIdentifier      string `json:"taxIdentifier,omitempty"`
 	TaxCode            struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"taxCode"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"taxCode,omitempty"`
 	BillingTerms struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"billingTerms"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"billingTerms,omitempty"`
 	InvoiceTemplate struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"invoiceTemplate"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"invoiceTemplate,omitempty"`
 	PricingSchedule struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"pricingSchedule"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"pricingSchedule,omitempty"`
 	CompanyEntityType struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"companyEntityType"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"companyEntityType,omitempty"`
 	BillToCompany struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"billToCompany"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"billToCompany,omitempty"`
 	BillingSite struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"billingSite"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"billingSite,omitempty"`
 	BillingContact struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"billingContact"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"billingContact,omitempty"`
 	InvoiceDeliveryMethod struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"invoiceDeliveryMethod"`
-	InvoiceToEmailAddress string    `json:"invoiceToEmailAddress"`
-	InvoiceCCEmailAddress string    `json:"invoiceCCEmailAddress"`
-	DeletedFlag           bool      `json:"deletedFlag"`
-	DateDeleted           time.Time `json:"dateDeleted"`
-	DeletedBy             string    `json:"deletedBy"`
-	MobileGuid            string    `json:"mobileGuid"`
-	FacebookUrl           string    `json:"facebookUrl"`
-	TwitterUrl            string    `json:"twitterUrl"`
-	LinkedInUrl           string    `json:"linkedInUrl"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"invoiceDeliveryMethod,omitempty"`
+	InvoiceToEmailAddress string    `json:"invoiceToEmailAddress,omitempty"`
+	InvoiceCCEmailAddress string    `json:"invoiceCCEmailAddress,omitempty"`
+	DeletedFlag           bool      `json:"deletedFlag,omitempty"`
+	DateDeleted           time.Time `json:"dateDeleted,omitempty"`
+	DeletedBy             string    `json:"deletedBy,omitempty"`
+	MobileGuid            string    `json:"mobileGuid,omitempty"`
+	FacebookUrl           string    `json:"facebookUrl,omitempty"`
+	TwitterUrl            string    `json:"twitterUrl,omitempty"`
+	LinkedInUrl           string    `json:"linkedInUrl,omitempty"`
 	Currency              struct {
-		Id                      int    `json:"id"`
-		Symbol                  string `json:"symbol"`
-		CurrencyCode            string `json:"currencyCode"`
-		DecimalSeparator        string `json:"decimalSeparator"`
-		NumberOfDecimals        int    `json:"numberOfDecimals"`
-		ThousandsSeparator      string `json:"thousandsSeparator"`
-		NegativeParenthesesFlag bool   `json:"negativeParenthesesFlag"`
-		DisplaySymbolFlag       bool   `json:"displaySymbolFlag"`
-		CurrencyIdentifier      string `json:"currencyIdentifier"`
-		DisplayIdFlag           bool   `json:"displayIdFlag"`
-		RightAlign              bool   `json:"rightAlign"`
-		Name                    string `json:"name"`
+		Id                      int    `json:"id,omitempty"`
+		Symbol                  string `json:"symbol,omitempty"`
+		CurrencyCode            string `json:"currencyCode,omitempty"`
+		DecimalSeparator        string `json:"decimalSeparator,omitempty"`
+		NumberOfDecimals        int    `json:"numberOfDecimals,omitempty"`
+		ThousandsSeparator      string `json:"thousandsSeparator,omitempty"`
+		NegativeParenthesesFlag bool   `json:"negativeParenthesesFlag,omitempty"`
+		DisplaySymbolFlag       bool   `json:"displaySymbolFlag,omitempty"`
+		CurrencyIdentifier      string `json:"currencyIdentifier,omitempty"`
+		DisplayIdFlag           bool   `json:"displayIdFlag,omitempty"`
+		RightAlign              bool   `json:"rightAlign,omitempty"`
+		Name                    string `json:"name,omitempty"`
 		Info                    struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"currency"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"currency,omitempty"`
 	TerritoryManager struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"territoryManager"`
-	ResellerIdentifier string `json:"resellerIdentifier"`
-	IsVendorFlag       bool   `json:"isVendorFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"territoryManager,omitempty"`
+	ResellerIdentifier string `json:"resellerIdentifier,omitempty"`
+	IsVendorFlag       bool   `json:"isVendorFlag,omitempty"`
 	Types              []struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"types"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"types,omitempty"`
 	Site struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"site"`
-	IntegratorTags []string `json:"integratorTags"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"site,omitempty"`
+	IntegratorTags []string `json:"integratorTags,omitempty"`
 	Info           struct {
-		AdditionalProp1 string `json:"additionalProp1"`
-		AdditionalProp2 string `json:"additionalProp2"`
-		AdditionalProp3 string `json:"additionalProp3"`
-	} `json:"_info"`
+		AdditionalProp1 string `json:"additionalProp1,omitempty"`
+		AdditionalProp2 string `json:"additionalProp2,omitempty"`
+		AdditionalProp3 string `json:"additionalProp3,omitempty"`
+	} `json:"_info,omitempty"`
 	CustomFields []struct {
-		Id               int    `json:"id"`
-		Caption          string `json:"caption"`
-		Type             string `json:"type"`
-		EntryMethod      string `json:"entryMethod"`
-		NumberOfDecimals int    `json:"numberOfDecimals"`
+		Id               int    `json:"id,omitempty"`
+		Caption          string `json:"caption,omitempty"`
+		Type             string `json:"type,omitempty"`
+		EntryMethod      string `json:"entryMethod,omitempty"`
+		NumberOfDecimals int    `json:"numberOfDecimals,omitempty"`
 		Value            struct {
-		} `json:"value"`
-		ConnectWiseId string `json:"connectWiseId"`
-	} `json:"customFields"`
+		} `json:"value,omitempty"`
+		ConnectWiseId string `json:"connectWiseId,omitempty"`
+	} `json:"customFields,omitempty"`
 }
-
 type Contact struct {
-	Id        int    `json:"id"`
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
+	Id        int    `json:"id,omitempty"`
+	FirstName string `json:"firstName,omitempty"`
+	LastName  string `json:"lastName,omitempty"`
 	Company   struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"company"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"company,omitempty"`
 	Site struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"site"`
-	AddressLine1 string `json:"addressLine1"`
-	AddressLine2 string `json:"addressLine2"`
-	City         string `json:"city"`
-	State        string `json:"state"`
-	Zip          string `json:"zip"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"site,omitempty"`
+	AddressLine1 string `json:"addressLine1,omitempty"`
+	AddressLine2 string `json:"addressLine2,omitempty"`
+	City         string `json:"city,omitempty"`
+	State        string `json:"state,omitempty"`
+	Zip          string `json:"zip,omitempty"`
 	Country      struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"country"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"country,omitempty"`
 	Relationship struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"relationship"`
-	RelationshipOverride string `json:"relationshipOverride"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"relationship,omitempty"`
+	RelationshipOverride string `json:"relationshipOverride,omitempty"`
 	Department           struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"department"`
-	InactiveFlag          bool   `json:"inactiveFlag"`
-	DefaultMergeContactId int    `json:"defaultMergeContactId"`
-	SecurityIdentifier    string `json:"securityIdentifier"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"department,omitempty"`
+	InactiveFlag          bool   `json:"inactiveFlag,omitempty"`
+	DefaultMergeContactId int    `json:"defaultMergeContactId,omitempty"`
+	SecurityIdentifier    string `json:"securityIdentifier,omitempty"`
 	ManagerContact        struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"managerContact"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"managerContact,omitempty"`
 	AssistantContact struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"assistantContact"`
-	Title                  string `json:"title"`
-	School                 string `json:"school"`
-	NickName               string `json:"nickName"`
-	MarriedFlag            bool   `json:"marriedFlag"`
-	ChildrenFlag           bool   `json:"childrenFlag"`
-	Children               string `json:"children"`
-	SignificantOther       string `json:"significantOther"`
-	PortalPassword         string `json:"portalPassword"`
-	PortalSecurityLevel    int    `json:"portalSecurityLevel"`
-	DisablePortalLoginFlag bool   `json:"disablePortalLoginFlag"`
-	UnsubscribeFlag        bool   `json:"unsubscribeFlag"`
-	Gender                 string `json:"gender"`
-	BirthDay               string `json:"birthDay"`
-	Anniversary            string `json:"anniversary"`
-	Presence               string `json:"presence"`
-	MobileGuid             string `json:"mobileGuid"`
-	FacebookUrl            string `json:"facebookUrl"`
-	TwitterUrl             string `json:"twitterUrl"`
-	LinkedInUrl            string `json:"linkedInUrl"`
-	DefaultPhoneType       string `json:"defaultPhoneType"`
-	DefaultPhoneNbr        string `json:"defaultPhoneNbr"`
-	DefaultPhoneExtension  string `json:"defaultPhoneExtension"`
-	DefaultBillingFlag     bool   `json:"defaultBillingFlag"`
-	DefaultFlag            bool   `json:"defaultFlag"`
-	UserDefinedField1      string `json:"userDefinedField1"`
-	UserDefinedField2      string `json:"userDefinedField2"`
-	UserDefinedField3      string `json:"userDefinedField3"`
-	UserDefinedField4      string `json:"userDefinedField4"`
-	UserDefinedField5      string `json:"userDefinedField5"`
-	UserDefinedField6      string `json:"userDefinedField6"`
-	UserDefinedField7      string `json:"userDefinedField7"`
-	UserDefinedField8      string `json:"userDefinedField8"`
-	UserDefinedField9      string `json:"userDefinedField9"`
-	UserDefinedField10     string `json:"userDefinedField10"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"assistantContact,omitempty"`
+	Title                  string `json:"title,omitempty"`
+	School                 string `json:"school,omitempty"`
+	NickName               string `json:"nickName,omitempty"`
+	MarriedFlag            bool   `json:"marriedFlag,omitempty"`
+	ChildrenFlag           bool   `json:"childrenFlag,omitempty"`
+	Children               string `json:"children,omitempty"`
+	SignificantOther       string `json:"significantOther,omitempty"`
+	PortalPassword         string `json:"portalPassword,omitempty"`
+	PortalSecurityLevel    int    `json:"portalSecurityLevel,omitempty"`
+	DisablePortalLoginFlag bool   `json:"disablePortalLoginFlag,omitempty"`
+	UnsubscribeFlag        bool   `json:"unsubscribeFlag,omitempty"`
+	Gender                 string `json:"gender,omitempty"`
+	BirthDay               string `json:"birthDay,omitempty"`
+	Anniversary            string `json:"anniversary,omitempty"`
+	Presence               string `json:"presence,omitempty"`
+	MobileGuid             string `json:"mobileGuid,omitempty"`
+	FacebookUrl            string `json:"facebookUrl,omitempty"`
+	TwitterUrl             string `json:"twitterUrl,omitempty"`
+	LinkedInUrl            string `json:"linkedInUrl,omitempty"`
+	DefaultPhoneType       string `json:"defaultPhoneType,omitempty"`
+	DefaultPhoneNbr        string `json:"defaultPhoneNbr,omitempty"`
+	DefaultPhoneExtension  string `json:"defaultPhoneExtension,omitempty"`
+	DefaultBillingFlag     bool   `json:"defaultBillingFlag,omitempty"`
+	DefaultFlag            bool   `json:"defaultFlag,omitempty"`
+	UserDefinedField1      string `json:"userDefinedField1,omitempty"`
+	UserDefinedField2      string `json:"userDefinedField2,omitempty"`
+	UserDefinedField3      string `json:"userDefinedField3,omitempty"`
+	UserDefinedField4      string `json:"userDefinedField4,omitempty"`
+	UserDefinedField5      string `json:"userDefinedField5,omitempty"`
+	UserDefinedField6      string `json:"userDefinedField6,omitempty"`
+	UserDefinedField7      string `json:"userDefinedField7,omitempty"`
+	UserDefinedField8      string `json:"userDefinedField8,omitempty"`
+	UserDefinedField9      string `json:"userDefinedField9,omitempty"`
+	UserDefinedField10     string `json:"userDefinedField10,omitempty"`
 	CompanyLocation        struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"companyLocation"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"companyLocation,omitempty"`
 	CommunicationItems []struct {
-		Id   int `json:"id"`
+		Id   int `json:"id,omitempty"`
 		Type struct {
-			Id   int    `json:"id"`
-			Name string `json:"name"`
+			Id   int    `json:"id,omitempty"`
+			Name string `json:"name,omitempty"`
 			Info struct {
-				AdditionalProp1 string `json:"additionalProp1"`
-				AdditionalProp2 string `json:"additionalProp2"`
-				AdditionalProp3 string `json:"additionalProp3"`
-			} `json:"_info"`
-		} `json:"type"`
-		Value             string `json:"value"`
-		Extension         string `json:"extension"`
-		DefaultFlag       bool   `json:"defaultFlag"`
-		Domain            string `json:"domain"`
-		CommunicationType string `json:"communicationType"`
-	} `json:"communicationItems"`
+				AdditionalProp1 string `json:"additionalProp1,omitempty"`
+				AdditionalProp2 string `json:"additionalProp2,omitempty"`
+				AdditionalProp3 string `json:"additionalProp3,omitempty"`
+			} `json:"_info,omitempty"`
+		} `json:"type,omitempty"`
+		Value             string `json:"value,omitempty"`
+		Extension         string `json:"extension,omitempty"`
+		DefaultFlag       bool   `json:"defaultFlag,omitempty"`
+		Domain            string `json:"domain,omitempty"`
+		CommunicationType string `json:"communicationType,omitempty"`
+	} `json:"communicationItems,omitempty"`
 	Types []struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"types"`
-	IntegratorTags []string `json:"integratorTags"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"types,omitempty"`
+	IntegratorTags []string `json:"integratorTags,omitempty"`
 	CustomFields   []struct {
-		Id               int    `json:"id"`
-		Caption          string `json:"caption"`
-		Type             string `json:"type"`
-		EntryMethod      string `json:"entryMethod"`
-		NumberOfDecimals int    `json:"numberOfDecimals"`
+		Id               int    `json:"id,omitempty"`
+		Caption          string `json:"caption,omitempty"`
+		Type             string `json:"type,omitempty"`
+		EntryMethod      string `json:"entryMethod,omitempty"`
+		NumberOfDecimals int    `json:"numberOfDecimals,omitempty"`
 		Value            struct {
-		} `json:"value"`
-		ConnectWiseId string `json:"connectWiseId"`
-	} `json:"customFields"`
+		} `json:"value,omitempty"`
+		ConnectWiseId string `json:"connectWiseId,omitempty"`
+	} `json:"customFields,omitempty"`
 	Photo struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"photo"`
-	IgnoreDuplicates bool `json:"ignoreDuplicates"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"photo,omitempty"`
+	IgnoreDuplicates bool `json:"ignoreDuplicates,omitempty"`
 	Info             struct {
-		AdditionalProp1 string `json:"additionalProp1"`
-		AdditionalProp2 string `json:"additionalProp2"`
-		AdditionalProp3 string `json:"additionalProp3"`
-	} `json:"_info"`
-	TypeIds []int `json:"typeIds"`
+		AdditionalProp1 string `json:"additionalProp1,omitempty"`
+		AdditionalProp2 string `json:"additionalProp2,omitempty"`
+		AdditionalProp3 string `json:"additionalProp3,omitempty"`
+	} `json:"_info,omitempty"`
+	TypeIds []int `json:"typeIds,omitempty"`
 }
-
 type Ticket struct {
-	Id         int    `json:"id"`
+	Id         int    `json:"id,omitempty"`
 	Summary    string `json:"summary"`
-	RecordType string `json:"recordType"`
+	RecordType string `json:"recordType,omitempty"`
 	Board      struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"board"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"board,omitempty"`
 	Status struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
-		Sort int    `json:"sort"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
+		Sort int    `json:"sort,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"status"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"status,omitempty"`
 	WorkRole struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"workRole"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"workRole,omitempty"`
 	WorkType struct {
-		Id              int    `json:"id"`
-		Name            string `json:"name"`
-		UtilizationFlag bool   `json:"utilizationFlag"`
+		Id              int    `json:"id,omitempty"`
+		Name            string `json:"name,omitempty"`
+		UtilizationFlag bool   `json:"utilizationFlag,omitempty"`
 		Info            struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"workType"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"workType,omitempty"`
 	Company struct {
 		Id         int    `json:"id"`
 		Identifier string `json:"identifier"`
 		Name       string `json:"name"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
 	} `json:"company"`
 	Site struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"site"`
-	SiteName        string `json:"siteName"`
-	AddressLine1    string `json:"addressLine1"`
-	AddressLine2    string `json:"addressLine2"`
-	City            string `json:"city"`
-	StateIdentifier string `json:"stateIdentifier"`
-	Zip             string `json:"zip"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"site,omitempty"`
+	SiteName        string `json:"siteName,omitempty"`
+	AddressLine1    string `json:"addressLine1,omitempty"`
+	AddressLine2    string `json:"addressLine2,omitempty"`
+	City            string `json:"city,omitempty"`
+	StateIdentifier string `json:"stateIdentifier,omitempty"`
+	Zip             string `json:"zip,omitempty"`
 	Country         struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"country"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"country,omitempty"`
 	Contact struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"contact"`
-	ContactName           string `json:"contactName"`
-	ContactPhoneNumber    string `json:"contactPhoneNumber"`
-	ContactPhoneExtension string `json:"contactPhoneExtension"`
-	ContactEmailAddress   string `json:"contactEmailAddress"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"contact,omitempty"`
+	ContactName           string `json:"contactName,omitempty"`
+	ContactPhoneNumber    string `json:"contactPhoneNumber,omitempty"`
+	ContactPhoneExtension string `json:"contactPhoneExtension,omitempty"`
+	ContactEmailAddress   string `json:"contactEmailAddress,omitempty"`
 	Type                  struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"type"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"type,omitempty"`
 	SubType struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"subType"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"subType,omitempty"`
 	Item struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"item"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"item,omitempty"`
 	Team struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"team"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"team,omitempty"`
 	Owner struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"owner"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"owner,omitempty"`
 	Priority struct {
-		Id    int    `json:"id"`
-		Name  string `json:"name"`
-		Sort  int    `json:"sort"`
-		Level string `json:"level"`
+		Id    int    `json:"id,omitempty"`
+		Name  string `json:"name,omitempty"`
+		Sort  int    `json:"sort,omitempty"`
+		Level string `json:"level,omitempty"`
 		Info  struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"priority"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"priority,omitempty"`
 	ServiceLocation struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"serviceLocation"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"serviceLocation,omitempty"`
 	Source struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"source"`
-	RequiredDate time.Time `json:"requiredDate"`
-	BudgetHours  int       `json:"budgetHours"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"source,omitempty"`
+	RequiredDate time.Time `json:"requiredDate,omitempty"`
+	BudgetHours  int       `json:"budgetHours,omitempty"`
 	Opportunity  struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"opportunity"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"opportunity,omitempty"`
 	Agreement struct {
-		Id             int    `json:"id"`
-		Name           string `json:"name"`
-		Type           string `json:"type"`
-		ChargeFirmFlag bool   `json:"chargeFirmFlag"`
+		Id             int    `json:"id,omitempty"`
+		Name           string `json:"name,omitempty"`
+		Type           string `json:"type,omitempty"`
+		ChargeFirmFlag bool   `json:"chargeFirmFlag,omitempty"`
 		Info           struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"agreement"`
-	AgreementType              string    `json:"agreementType"`
-	Severity                   string    `json:"severity"`
-	Impact                     string    `json:"impact"`
-	ExternalXRef               string    `json:"externalXRef"`
-	PoNumber                   string    `json:"poNumber"`
-	KnowledgeBaseCategoryId    int       `json:"knowledgeBaseCategoryId"`
-	KnowledgeBaseSubCategoryId int       `json:"knowledgeBaseSubCategoryId"`
-	AllowAllClientsPortalView  bool      `json:"allowAllClientsPortalView"`
-	CustomerUpdatedFlag        bool      `json:"customerUpdatedFlag"`
-	AutomaticEmailContactFlag  bool      `json:"automaticEmailContactFlag"`
-	AutomaticEmailResourceFlag bool      `json:"automaticEmailResourceFlag"`
-	AutomaticEmailCcFlag       bool      `json:"automaticEmailCcFlag"`
-	AutomaticEmailCc           string    `json:"automaticEmailCc"`
-	InitialDescription         string    `json:"initialDescription"`
-	InitialInternalAnalysis    string    `json:"initialInternalAnalysis"`
-	InitialResolution          string    `json:"initialResolution"`
-	InitialDescriptionFrom     string    `json:"initialDescriptionFrom"`
-	ContactEmailLookup         string    `json:"contactEmailLookup"`
-	ProcessNotifications       bool      `json:"processNotifications"`
-	SkipCallback               bool      `json:"skipCallback"`
-	ClosedDate                 string    `json:"closedDate"`
-	ClosedBy                   string    `json:"closedBy"`
-	ClosedFlag                 bool      `json:"closedFlag"`
-	ActualHours                int       `json:"actualHours"`
-	Approved                   bool      `json:"approved"`
-	EstimatedExpenseCost       int       `json:"estimatedExpenseCost"`
-	EstimatedExpenseRevenue    int       `json:"estimatedExpenseRevenue"`
-	EstimatedProductCost       int       `json:"estimatedProductCost"`
-	EstimatedProductRevenue    int       `json:"estimatedProductRevenue"`
-	EstimatedTimeCost          int       `json:"estimatedTimeCost"`
-	EstimatedTimeRevenue       int       `json:"estimatedTimeRevenue"`
-	BillingMethod              string    `json:"billingMethod"`
-	BillingAmount              int       `json:"billingAmount"`
-	HourlyRate                 int       `json:"hourlyRate"`
-	SubBillingMethod           string    `json:"subBillingMethod"`
-	SubBillingAmount           int       `json:"subBillingAmount"`
-	SubDateAccepted            string    `json:"subDateAccepted"`
-	DateResolved               string    `json:"dateResolved"`
-	DateResplan                string    `json:"dateResplan"`
-	DateResponded              string    `json:"dateResponded"`
-	ResolveMinutes             int       `json:"resolveMinutes"`
-	ResPlanMinutes             int       `json:"resPlanMinutes"`
-	RespondMinutes             int       `json:"respondMinutes"`
-	IsInSla                    bool      `json:"isInSla"`
-	KnowledgeBaseLinkId        int       `json:"knowledgeBaseLinkId"`
-	Resources                  string    `json:"resources"`
-	ParentTicketId             int       `json:"parentTicketId"`
-	HasChildTicket             bool      `json:"hasChildTicket"`
-	HasMergedChildTicketFlag   bool      `json:"hasMergedChildTicketFlag"`
-	KnowledgeBaseLinkType      string    `json:"knowledgeBaseLinkType"`
-	BillTime                   string    `json:"billTime"`
-	BillExpenses               string    `json:"billExpenses"`
-	BillProducts               string    `json:"billProducts"`
-	PredecessorType            string    `json:"predecessorType"`
-	PredecessorId              int       `json:"predecessorId"`
-	PredecessorClosedFlag      bool      `json:"predecessorClosedFlag"`
-	LagDays                    int       `json:"lagDays"`
-	LagNonworkingDaysFlag      bool      `json:"lagNonworkingDaysFlag"`
-	EstimatedStartDate         time.Time `json:"estimatedStartDate"`
-	Duration                   int       `json:"duration"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"agreement,omitempty"`
+	AgreementType              string    `json:"agreementType,omitempty"`
+	Severity                   string    `json:"severity,omitempty"`
+	Impact                     string    `json:"impact,omitempty"`
+	ExternalXRef               string    `json:"externalXRef,omitempty"`
+	PoNumber                   string    `json:"poNumber,omitempty"`
+	KnowledgeBaseCategoryId    int       `json:"knowledgeBaseCategoryId,omitempty"`
+	KnowledgeBaseSubCategoryId int       `json:"knowledgeBaseSubCategoryId,omitempty"`
+	AllowAllClientsPortalView  bool      `json:"allowAllClientsPortalView,omitempty"`
+	CustomerUpdatedFlag        bool      `json:"customerUpdatedFlag,omitempty"`
+	AutomaticEmailContactFlag  bool      `json:"automaticEmailContactFlag,omitempty"`
+	AutomaticEmailResourceFlag bool      `json:"automaticEmailResourceFlag,omitempty"`
+	AutomaticEmailCcFlag       bool      `json:"automaticEmailCcFlag,omitempty"`
+	AutomaticEmailCc           string    `json:"automaticEmailCc,omitempty"`
+	InitialDescription         string    `json:"initialDescription,omitempty"`
+	InitialInternalAnalysis    string    `json:"initialInternalAnalysis,omitempty"`
+	InitialResolution          string    `json:"initialResolution,omitempty"`
+	InitialDescriptionFrom     string    `json:"initialDescriptionFrom,omitempty"`
+	ContactEmailLookup         string    `json:"contactEmailLookup,omitempty"`
+	ProcessNotifications       bool      `json:"processNotifications,omitempty"`
+	SkipCallback               bool      `json:"skipCallback,omitempty"`
+	ClosedDate                 string    `json:"closedDate,omitempty"`
+	ClosedBy                   string    `json:"closedBy,omitempty"`
+	ClosedFlag                 bool      `json:"closedFlag,omitempty"`
+	ActualHours                int       `json:"actualHours,omitempty"`
+	Approved                   bool      `json:"approved,omitempty"`
+	EstimatedExpenseCost       int       `json:"estimatedExpenseCost,omitempty"`
+	EstimatedExpenseRevenue    int       `json:"estimatedExpenseRevenue,omitempty"`
+	EstimatedProductCost       int       `json:"estimatedProductCost,omitempty"`
+	EstimatedProductRevenue    int       `json:"estimatedProductRevenue,omitempty"`
+	EstimatedTimeCost          int       `json:"estimatedTimeCost,omitempty"`
+	EstimatedTimeRevenue       int       `json:"estimatedTimeRevenue,omitempty"`
+	BillingMethod              string    `json:"billingMethod,omitempty"`
+	BillingAmount              int       `json:"billingAmount,omitempty"`
+	HourlyRate                 int       `json:"hourlyRate,omitempty"`
+	SubBillingMethod           string    `json:"subBillingMethod,omitempty"`
+	SubBillingAmount           int       `json:"subBillingAmount,omitempty"`
+	SubDateAccepted            string    `json:"subDateAccepted,omitempty"`
+	DateResolved               string    `json:"dateResolved,omitempty"`
+	DateResplan                string    `json:"dateResplan,omitempty"`
+	DateResponded              string    `json:"dateResponded,omitempty"`
+	ResolveMinutes             int       `json:"resolveMinutes,omitempty"`
+	ResPlanMinutes             int       `json:"resPlanMinutes,omitempty"`
+	RespondMinutes             int       `json:"respondMinutes,omitempty"`
+	IsInSla                    bool      `json:"isInSla,omitempty"`
+	KnowledgeBaseLinkId        int       `json:"knowledgeBaseLinkId,omitempty"`
+	Resources                  string    `json:"resources,omitempty"`
+	ParentTicketId             int       `json:"parentTicketId,omitempty"`
+	HasChildTicket             bool      `json:"hasChildTicket,omitempty"`
+	HasMergedChildTicketFlag   bool      `json:"hasMergedChildTicketFlag,omitempty"`
+	KnowledgeBaseLinkType      string    `json:"knowledgeBaseLinkType,omitempty"`
+	BillTime                   string    `json:"billTime,omitempty"`
+	BillExpenses               string    `json:"billExpenses,omitempty"`
+	BillProducts               string    `json:"billProducts,omitempty"`
+	PredecessorType            string    `json:"predecessorType,omitempty"`
+	PredecessorId              int       `json:"predecessorId,omitempty"`
+	PredecessorClosedFlag      bool      `json:"predecessorClosedFlag,omitempty"`
+	LagDays                    int       `json:"lagDays,omitempty"`
+	LagNonworkingDaysFlag      bool      `json:"lagNonworkingDaysFlag,omitempty"`
+	EstimatedStartDate         time.Time `json:"estimatedStartDate,omitempty"`
+	Duration                   int       `json:"duration,omitempty"`
 	Location                   struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"location"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"location,omitempty"`
 	Department struct {
-		Id         int    `json:"id"`
-		Identifier string `json:"identifier"`
-		Name       string `json:"name"`
+		Id         int    `json:"id,omitempty"`
+		Identifier string `json:"identifier,omitempty"`
+		Name       string `json:"name,omitempty"`
 		Info       struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"department"`
-	MobileGuid string `json:"mobileGuid"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"department,omitempty"`
+	MobileGuid string `json:"mobileGuid,omitempty"`
 	Sla        struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"sla"`
-	SlaStatus            string `json:"slaStatus"`
-	RequestForChangeFlag bool   `json:"requestForChangeFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"sla,omitempty"`
+	SlaStatus            string `json:"slaStatus,omitempty"`
+	RequestForChangeFlag bool   `json:"requestForChangeFlag,omitempty"`
 	Currency             struct {
-		Id                      int    `json:"id"`
-		Symbol                  string `json:"symbol"`
-		CurrencyCode            string `json:"currencyCode"`
-		DecimalSeparator        string `json:"decimalSeparator"`
-		NumberOfDecimals        int    `json:"numberOfDecimals"`
-		ThousandsSeparator      string `json:"thousandsSeparator"`
-		NegativeParenthesesFlag bool   `json:"negativeParenthesesFlag"`
-		DisplaySymbolFlag       bool   `json:"displaySymbolFlag"`
-		CurrencyIdentifier      string `json:"currencyIdentifier"`
-		DisplayIdFlag           bool   `json:"displayIdFlag"`
-		RightAlign              bool   `json:"rightAlign"`
-		Name                    string `json:"name"`
+		Id                      int    `json:"id,omitempty"`
+		Symbol                  string `json:"symbol,omitempty"`
+		CurrencyCode            string `json:"currencyCode,omitempty"`
+		DecimalSeparator        string `json:"decimalSeparator,omitempty"`
+		NumberOfDecimals        int    `json:"numberOfDecimals,omitempty"`
+		ThousandsSeparator      string `json:"thousandsSeparator,omitempty"`
+		NegativeParenthesesFlag bool   `json:"negativeParenthesesFlag,omitempty"`
+		DisplaySymbolFlag       bool   `json:"displaySymbolFlag,omitempty"`
+		CurrencyIdentifier      string `json:"currencyIdentifier,omitempty"`
+		DisplayIdFlag           bool   `json:"displayIdFlag,omitempty"`
+		RightAlign              bool   `json:"rightAlign,omitempty"`
+		Name                    string `json:"name,omitempty"`
 		Info                    struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"currency"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"currency,omitempty"`
 	MergedParentTicket struct {
-		Id      int    `json:"id"`
-		Summary string `json:"summary"`
+		Id      int    `json:"id,omitempty"`
+		Summary string `json:"summary,omitempty"`
 		Info    struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"mergedParentTicket"`
-	IntegratorTags []string `json:"integratorTags"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"mergedParentTicket,omitempty"`
+	IntegratorTags []string `json:"integratorTags,omitempty"`
 	Info           struct {
-		AdditionalProp1 string `json:"additionalProp1"`
-		AdditionalProp2 string `json:"additionalProp2"`
-		AdditionalProp3 string `json:"additionalProp3"`
-	} `json:"_info"`
-	EscalationStartDateUTC  string `json:"escalationStartDateUTC"`
-	EscalationLevel         int    `json:"escalationLevel"`
-	MinutesBeforeWaiting    int    `json:"minutesBeforeWaiting"`
-	RespondedSkippedMinutes int    `json:"respondedSkippedMinutes"`
-	ResplanSkippedMinutes   int    `json:"resplanSkippedMinutes"`
-	RespondedHours          int    `json:"respondedHours"`
-	RespondedBy             string `json:"respondedBy"`
-	ResplanHours            int    `json:"resplanHours"`
-	ResplanBy               string `json:"resplanBy"`
-	ResolutionHours         int    `json:"resolutionHours"`
-	ResolvedBy              string `json:"resolvedBy"`
-	MinutesWaiting          int    `json:"minutesWaiting"`
+		AdditionalProp1 string `json:"additionalProp1,omitempty"`
+		AdditionalProp2 string `json:"additionalProp2,omitempty"`
+		AdditionalProp3 string `json:"additionalProp3,omitempty"`
+	} `json:"_info,omitempty"`
+	EscalationStartDateUTC  string `json:"escalationStartDateUTC,omitempty"`
+	EscalationLevel         int    `json:"escalationLevel,omitempty"`
+	MinutesBeforeWaiting    int    `json:"minutesBeforeWaiting,omitempty"`
+	RespondedSkippedMinutes int    `json:"respondedSkippedMinutes,omitempty"`
+	ResplanSkippedMinutes   int    `json:"resplanSkippedMinutes,omitempty"`
+	RespondedHours          int    `json:"respondedHours,omitempty"`
+	RespondedBy             string `json:"respondedBy,omitempty"`
+	ResplanHours            int    `json:"resplanHours,omitempty"`
+	ResplanBy               string `json:"resplanBy,omitempty"`
+	ResolutionHours         int    `json:"resolutionHours,omitempty"`
+	ResolvedBy              string `json:"resolvedBy,omitempty"`
+	MinutesWaiting          int    `json:"minutesWaiting,omitempty"`
 	CustomFields            []struct {
-		Id               int    `json:"id"`
-		Caption          string `json:"caption"`
-		Type             string `json:"type"`
-		EntryMethod      string `json:"entryMethod"`
-		NumberOfDecimals int    `json:"numberOfDecimals"`
+		Id               int    `json:"id,omitempty"`
+		Caption          string `json:"caption,omitempty"`
+		Type             string `json:"type,omitempty"`
+		EntryMethod      string `json:"entryMethod,omitempty"`
+		NumberOfDecimals int    `json:"numberOfDecimals,omitempty"`
 		Value            struct {
-		} `json:"value"`
-		ConnectWiseId string `json:"connectWiseId"`
-	} `json:"customFields"`
+		} `json:"value,omitempty"`
+		ConnectWiseId string `json:"connectWiseId,omitempty"`
+	} `json:"customFields,omitempty"`
 }
-
 type ServiceTicketNote struct {
-	Id                    int    `json:"id"`
-	TicketId              int    `json:"ticketId"`
-	Text                  string `json:"text"`
-	DetailDescriptionFlag bool   `json:"detailDescriptionFlag"`
-	InternalAnalysisFlag  bool   `json:"internalAnalysisFlag"`
-	ResolutionFlag        bool   `json:"resolutionFlag"`
-	IssueFlag             bool   `json:"issueFlag"`
+	Id                    int    `json:"id,omitempty"`
+	TicketId              int    `json:"ticketId,omitempty"`
+	Text                  string `json:"text,omitempty"`
+	DetailDescriptionFlag bool   `json:"detailDescriptionFlag,omitempty"`
+	InternalAnalysisFlag  bool   `json:"internalAnalysisFlag,omitempty"`
+	ResolutionFlag        bool   `json:"resolutionFlag,omitempty"`
+	IssueFlag             bool   `json:"issueFlag,omitempty"`
 	Member                struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"member"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"member,omitempty"`
 	Contact struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"contact"`
-	CustomerUpdatedFlag  bool `json:"customerUpdatedFlag"`
-	ProcessNotifications bool `json:"processNotifications"`
-	InternalFlag         bool `json:"internalFlag"`
-	ExternalFlag         bool `json:"externalFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"contact,omitempty"`
+	CustomerUpdatedFlag  bool `json:"customerUpdatedFlag,omitempty"`
+	ProcessNotifications bool `json:"processNotifications,omitempty"`
+	InternalFlag         bool `json:"internalFlag,omitempty"`
+	ExternalFlag         bool `json:"externalFlag,omitempty"`
 	Info                 struct {
-		AdditionalProp1 string `json:"additionalProp1"`
-		AdditionalProp2 string `json:"additionalProp2"`
-		AdditionalProp3 string `json:"additionalProp3"`
-	} `json:"_info"`
+		AdditionalProp1 string `json:"additionalProp1,omitempty"`
+		AdditionalProp2 string `json:"additionalProp2,omitempty"`
+		AdditionalProp3 string `json:"additionalProp3,omitempty"`
+	} `json:"_info,omitempty"`
 }
 
 type ServiceTicketNoteAll struct {
-	Id       int    `json:"id"`
-	NoteType string `json:"noteType"`
+	Id       int    `json:"id,omitempty"`
+	NoteType string `json:"noteType,omitempty"`
 	Ticket   struct {
-		Id      int    `json:"id"`
-		Summary string `json:"summary"`
+		Id      int    `json:"id,omitempty"`
+		Summary string `json:"summary,omitempty"`
 		Info    struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"ticket"`
-	Text                  string `json:"text"`
-	IsMarkdownFlag        bool   `json:"isMarkdownFlag"`
-	DetailDescriptionFlag bool   `json:"detailDescriptionFlag"`
-	InternalAnalysisFlag  bool   `json:"internalAnalysisFlag"`
-	ResolutionFlag        bool   `json:"resolutionFlag"`
-	TimeStart             string `json:"timeStart"`
-	TimeEnd               string `json:"timeEnd"`
-	BundledFlag           bool   `json:"bundledFlag"`
-	MergedFlag            bool   `json:"mergedFlag"`
-	IssueFlag             bool   `json:"issueFlag"`
-	OriginalAuthor        string `json:"originalAuthor"`
-	CreatedByParentFlag   bool   `json:"createdByParentFlag"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"ticket,omitempty"`
+	Text                  string `json:"text,omitempty"`
+	IsMarkdownFlag        bool   `json:"isMarkdownFlag,omitempty"`
+	DetailDescriptionFlag bool   `json:"detailDescriptionFlag,omitempty"`
+	InternalAnalysisFlag  bool   `json:"internalAnalysisFlag,omitempty"`
+	ResolutionFlag        bool   `json:"resolutionFlag,omitempty"`
+	TimeStart             string `json:"timeStart,omitempty"`
+	TimeEnd               string `json:"timeEnd,omitempty"`
+	BundledFlag           bool   `json:"bundledFlag,omitempty"`
+	MergedFlag            bool   `json:"mergedFlag,omitempty"`
+	IssueFlag             bool   `json:"issueFlag,omitempty"`
+	OriginalAuthor        string `json:"originalAuthor,omitempty"`
+	CreatedByParentFlag   bool   `json:"createdByParentFlag,omitempty"`
 	Member                struct {
-		Id            int    `json:"id"`
-		Identifier    string `json:"identifier"`
-		Name          string `json:"name"`
-		DailyCapacity int    `json:"dailyCapacity"`
+		Id            int    `json:"id,omitempty"`
+		Identifier    string `json:"identifier,omitempty"`
+		Name          string `json:"name,omitempty"`
+		DailyCapacity int    `json:"dailyCapacity,omitempty"`
 		Info          struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"member"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"member,omitempty"`
 	Contact struct {
-		Id   int    `json:"id"`
-		Name string `json:"name"`
+		Id   int    `json:"id,omitempty"`
+		Name string `json:"name,omitempty"`
 		Info struct {
-			AdditionalProp1 string `json:"additionalProp1"`
-			AdditionalProp2 string `json:"additionalProp2"`
-			AdditionalProp3 string `json:"additionalProp3"`
-		} `json:"_info"`
-	} `json:"contact"`
+			AdditionalProp1 string `json:"additionalProp1,omitempty"`
+			AdditionalProp2 string `json:"additionalProp2,omitempty"`
+			AdditionalProp3 string `json:"additionalProp3,omitempty"`
+		} `json:"_info,omitempty"`
+	} `json:"contact,omitempty"`
 	Info struct {
-		AdditionalProp1 string `json:"additionalProp1"`
-		AdditionalProp2 string `json:"additionalProp2"`
-		AdditionalProp3 string `json:"additionalProp3"`
-	} `json:"_info"`
+		AdditionalProp1 string `json:"additionalProp1,omitempty"`
+		AdditionalProp2 string `json:"additionalProp2,omitempty"`
+		AdditionalProp3 string `json:"additionalProp3,omitempty"`
+	} `json:"_info,omitempty"`
 }
