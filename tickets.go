@@ -9,6 +9,14 @@ func ticketIdEndpoint(ticketId int) string {
 	return fmt.Sprintf("service/tickets/%d", ticketId)
 }
 
+func ticketIdNotesEndpoint(ticketId int) string {
+	return fmt.Sprintf("%s/notes", ticketIdEndpoint(ticketId))
+}
+
+func ticketIdNoteIdEndpoint(ticketId, noteId int) string {
+	return fmt.Sprintf("%s/%d", ticketIdNotesEndpoint(ticketId), noteId)
+}
+
 func (c *Client) ListTickets(ctx context.Context, params *QueryParams) ([]Ticket, error) {
 	return ApiRequestPaginated[Ticket](ctx, c, "GET", "service/tickets", params, nil)
 }
@@ -48,9 +56,25 @@ func (c *Client) ListServiceTicketNotes(ctx context.Context, ticketId int, param
 //
 // Not recommended since you will probably get what you need through ListServiceTicketNotes
 func (c *Client) ListServiceNotes(ctx context.Context, ticketId int, params *QueryParams) ([]ServiceTicketNote, error) {
-	return ApiRequestPaginated[ServiceTicketNote](ctx, c, "GET", ticketIdEndpoint(ticketId)+"notes", params, nil)
+	return ApiRequestPaginated[ServiceTicketNote](ctx, c, "GET", ticketIdNotesEndpoint(ticketId), params, nil)
 }
 
 func (c *Client) PostServiceTicketNote(ctx context.Context, ticketId int, note *ServiceTicketNote) (*ServiceTicketNote, error) {
-	return ApiRequestNonPaginated[ServiceTicketNote](ctx, c, "POST", ticketIdEndpoint(ticketId)+"notes", nil, note)
+	return ApiRequestNonPaginated[ServiceTicketNote](ctx, c, "POST", ticketIdNotesEndpoint(ticketId), nil, note)
+}
+
+func (c *Client) DeleteServiceTicketNote(ctx context.Context, ticketId, noteId int) error {
+	if _, err := ApiRequestNonPaginated[struct{}](ctx, c, "DELETE", ticketIdNoteIdEndpoint(ticketId, noteId), nil, nil); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (c *Client) PutServiceTicketNote(ctx context.Context, ticketId, noteId int, note *ServiceTicketNote) (*ServiceTicketNote, error) {
+	return ApiRequestNonPaginated[ServiceTicketNote](ctx, c, "PUT", ticketIdNoteIdEndpoint(ticketId, noteId), nil, note)
+}
+
+func (c *Client) PatchServiceTicketNote(ctx context.Context, ticketId, noteId int, patchOps []PatchOp) (*ServiceTicketNote, error) {
+	return ApiRequestNonPaginated[ServiceTicketNote](ctx, c, "PATCH", ticketIdNoteIdEndpoint(ticketId, noteId), nil, patchOps)
 }

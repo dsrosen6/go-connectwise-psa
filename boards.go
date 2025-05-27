@@ -22,7 +22,7 @@ func (c *Client) GetBoard(ctx context.Context, boardId int, params *QueryParams)
 }
 
 func (c *Client) DeleteBoard(ctx context.Context, boardId int) error {
-	if _, err := ApiRequestNonPaginated[Board](ctx, c, "DELETE", boardIdEndpoint(boardId), nil, nil); err != nil {
+	if _, err := ApiRequestNonPaginated[struct{}](ctx, c, "DELETE", boardIdEndpoint(boardId), nil, nil); err != nil {
 		return err
 	}
 

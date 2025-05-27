@@ -201,6 +201,466 @@ type Board struct {
 	} `json:"_info"`
 }
 
+type Company struct {
+	Id         int    `json:"id"`
+	Identifier string `json:"identifier"`
+	Name       string `json:"name"`
+	Status     struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"status"`
+	AddressLine1 string `json:"addressLine1"`
+	AddressLine2 string `json:"addressLine2"`
+	City         string `json:"city"`
+	State        string `json:"state"`
+	Zip          string `json:"zip"`
+	Country      struct {
+		Id         int    `json:"id"`
+		Identifier string `json:"identifier"`
+		Name       string `json:"name"`
+		Info       struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"country"`
+	PhoneNumber string `json:"phoneNumber"`
+	FaxNumber   string `json:"faxNumber"`
+	Website     string `json:"website"`
+	Territory   struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"territory"`
+	Market struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"market"`
+	AccountNumber  string `json:"accountNumber"`
+	DefaultContact struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"defaultContact"`
+	DateAcquired time.Time `json:"dateAcquired"`
+	SicCode      struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"sicCode"`
+	ParentCompany struct {
+		Id         int    `json:"id"`
+		Identifier string `json:"identifier"`
+		Name       string `json:"name"`
+		Info       struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"parentCompany"`
+	AnnualRevenue     int `json:"annualRevenue"`
+	NumberOfEmployees int `json:"numberOfEmployees"`
+	YearEstablished   int `json:"yearEstablished"`
+	RevenueYear       int `json:"revenueYear"`
+	OwnershipType     struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"ownershipType"`
+	TimeZoneSetup struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"timeZoneSetup"`
+	LeadSource      string `json:"leadSource"`
+	LeadFlag        bool   `json:"leadFlag"`
+	UnsubscribeFlag bool   `json:"unsubscribeFlag"`
+	Calendar        struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"calendar"`
+	UserDefinedField1  string `json:"userDefinedField1"`
+	UserDefinedField2  string `json:"userDefinedField2"`
+	UserDefinedField3  string `json:"userDefinedField3"`
+	UserDefinedField4  string `json:"userDefinedField4"`
+	UserDefinedField5  string `json:"userDefinedField5"`
+	UserDefinedField6  string `json:"userDefinedField6"`
+	UserDefinedField7  string `json:"userDefinedField7"`
+	UserDefinedField8  string `json:"userDefinedField8"`
+	UserDefinedField9  string `json:"userDefinedField9"`
+	UserDefinedField10 string `json:"userDefinedField10"`
+	VendorIdentifier   string `json:"vendorIdentifier"`
+	TaxIdentifier      string `json:"taxIdentifier"`
+	TaxCode            struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"taxCode"`
+	BillingTerms struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"billingTerms"`
+	InvoiceTemplate struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"invoiceTemplate"`
+	PricingSchedule struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"pricingSchedule"`
+	CompanyEntityType struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"companyEntityType"`
+	BillToCompany struct {
+		Id         int    `json:"id"`
+		Identifier string `json:"identifier"`
+		Name       string `json:"name"`
+		Info       struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"billToCompany"`
+	BillingSite struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"billingSite"`
+	BillingContact struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"billingContact"`
+	InvoiceDeliveryMethod struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"invoiceDeliveryMethod"`
+	InvoiceToEmailAddress string    `json:"invoiceToEmailAddress"`
+	InvoiceCCEmailAddress string    `json:"invoiceCCEmailAddress"`
+	DeletedFlag           bool      `json:"deletedFlag"`
+	DateDeleted           time.Time `json:"dateDeleted"`
+	DeletedBy             string    `json:"deletedBy"`
+	MobileGuid            string    `json:"mobileGuid"`
+	FacebookUrl           string    `json:"facebookUrl"`
+	TwitterUrl            string    `json:"twitterUrl"`
+	LinkedInUrl           string    `json:"linkedInUrl"`
+	Currency              struct {
+		Id                      int    `json:"id"`
+		Symbol                  string `json:"symbol"`
+		CurrencyCode            string `json:"currencyCode"`
+		DecimalSeparator        string `json:"decimalSeparator"`
+		NumberOfDecimals        int    `json:"numberOfDecimals"`
+		ThousandsSeparator      string `json:"thousandsSeparator"`
+		NegativeParenthesesFlag bool   `json:"negativeParenthesesFlag"`
+		DisplaySymbolFlag       bool   `json:"displaySymbolFlag"`
+		CurrencyIdentifier      string `json:"currencyIdentifier"`
+		DisplayIdFlag           bool   `json:"displayIdFlag"`
+		RightAlign              bool   `json:"rightAlign"`
+		Name                    string `json:"name"`
+		Info                    struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"currency"`
+	TerritoryManager struct {
+		Id            int    `json:"id"`
+		Identifier    string `json:"identifier"`
+		Name          string `json:"name"`
+		DailyCapacity int    `json:"dailyCapacity"`
+		Info          struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"territoryManager"`
+	ResellerIdentifier string `json:"resellerIdentifier"`
+	IsVendorFlag       bool   `json:"isVendorFlag"`
+	Types              []struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"types"`
+	Site struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"site"`
+	IntegratorTags []string `json:"integratorTags"`
+	Info           struct {
+		AdditionalProp1 string `json:"additionalProp1"`
+		AdditionalProp2 string `json:"additionalProp2"`
+		AdditionalProp3 string `json:"additionalProp3"`
+	} `json:"_info"`
+	CustomFields []struct {
+		Id               int    `json:"id"`
+		Caption          string `json:"caption"`
+		Type             string `json:"type"`
+		EntryMethod      string `json:"entryMethod"`
+		NumberOfDecimals int    `json:"numberOfDecimals"`
+		Value            struct {
+		} `json:"value"`
+		ConnectWiseId string `json:"connectWiseId"`
+	} `json:"customFields"`
+}
+
+type Contact struct {
+	Id        int    `json:"id"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Company   struct {
+		Id         int    `json:"id"`
+		Identifier string `json:"identifier"`
+		Name       string `json:"name"`
+		Info       struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"company"`
+	Site struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"site"`
+	AddressLine1 string `json:"addressLine1"`
+	AddressLine2 string `json:"addressLine2"`
+	City         string `json:"city"`
+	State        string `json:"state"`
+	Zip          string `json:"zip"`
+	Country      struct {
+		Id         int    `json:"id"`
+		Identifier string `json:"identifier"`
+		Name       string `json:"name"`
+		Info       struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"country"`
+	Relationship struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"relationship"`
+	RelationshipOverride string `json:"relationshipOverride"`
+	Department           struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"department"`
+	InactiveFlag          bool   `json:"inactiveFlag"`
+	DefaultMergeContactId int    `json:"defaultMergeContactId"`
+	SecurityIdentifier    string `json:"securityIdentifier"`
+	ManagerContact        struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"managerContact"`
+	AssistantContact struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"assistantContact"`
+	Title                  string `json:"title"`
+	School                 string `json:"school"`
+	NickName               string `json:"nickName"`
+	MarriedFlag            bool   `json:"marriedFlag"`
+	ChildrenFlag           bool   `json:"childrenFlag"`
+	Children               string `json:"children"`
+	SignificantOther       string `json:"significantOther"`
+	PortalPassword         string `json:"portalPassword"`
+	PortalSecurityLevel    int    `json:"portalSecurityLevel"`
+	DisablePortalLoginFlag bool   `json:"disablePortalLoginFlag"`
+	UnsubscribeFlag        bool   `json:"unsubscribeFlag"`
+	Gender                 string `json:"gender"`
+	BirthDay               string `json:"birthDay"`
+	Anniversary            string `json:"anniversary"`
+	Presence               string `json:"presence"`
+	MobileGuid             string `json:"mobileGuid"`
+	FacebookUrl            string `json:"facebookUrl"`
+	TwitterUrl             string `json:"twitterUrl"`
+	LinkedInUrl            string `json:"linkedInUrl"`
+	DefaultPhoneType       string `json:"defaultPhoneType"`
+	DefaultPhoneNbr        string `json:"defaultPhoneNbr"`
+	DefaultPhoneExtension  string `json:"defaultPhoneExtension"`
+	DefaultBillingFlag     bool   `json:"defaultBillingFlag"`
+	DefaultFlag            bool   `json:"defaultFlag"`
+	UserDefinedField1      string `json:"userDefinedField1"`
+	UserDefinedField2      string `json:"userDefinedField2"`
+	UserDefinedField3      string `json:"userDefinedField3"`
+	UserDefinedField4      string `json:"userDefinedField4"`
+	UserDefinedField5      string `json:"userDefinedField5"`
+	UserDefinedField6      string `json:"userDefinedField6"`
+	UserDefinedField7      string `json:"userDefinedField7"`
+	UserDefinedField8      string `json:"userDefinedField8"`
+	UserDefinedField9      string `json:"userDefinedField9"`
+	UserDefinedField10     string `json:"userDefinedField10"`
+	CompanyLocation        struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"companyLocation"`
+	CommunicationItems []struct {
+		Id   int `json:"id"`
+		Type struct {
+			Id   int    `json:"id"`
+			Name string `json:"name"`
+			Info struct {
+				AdditionalProp1 string `json:"additionalProp1"`
+				AdditionalProp2 string `json:"additionalProp2"`
+				AdditionalProp3 string `json:"additionalProp3"`
+			} `json:"_info"`
+		} `json:"type"`
+		Value             string `json:"value"`
+		Extension         string `json:"extension"`
+		DefaultFlag       bool   `json:"defaultFlag"`
+		Domain            string `json:"domain"`
+		CommunicationType string `json:"communicationType"`
+	} `json:"communicationItems"`
+	Types []struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"types"`
+	IntegratorTags []string `json:"integratorTags"`
+	CustomFields   []struct {
+		Id               int    `json:"id"`
+		Caption          string `json:"caption"`
+		Type             string `json:"type"`
+		EntryMethod      string `json:"entryMethod"`
+		NumberOfDecimals int    `json:"numberOfDecimals"`
+		Value            struct {
+		} `json:"value"`
+		ConnectWiseId string `json:"connectWiseId"`
+	} `json:"customFields"`
+	Photo struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+		Info struct {
+			AdditionalProp1 string `json:"additionalProp1"`
+			AdditionalProp2 string `json:"additionalProp2"`
+			AdditionalProp3 string `json:"additionalProp3"`
+		} `json:"_info"`
+	} `json:"photo"`
+	IgnoreDuplicates bool `json:"ignoreDuplicates"`
+	Info             struct {
+		AdditionalProp1 string `json:"additionalProp1"`
+		AdditionalProp2 string `json:"additionalProp2"`
+		AdditionalProp3 string `json:"additionalProp3"`
+	} `json:"_info"`
+	TypeIds []int `json:"typeIds"`
+}
+
 type Ticket struct {
 	Id         int    `json:"id"`
 	Summary    string `json:"summary"`
