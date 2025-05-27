@@ -2,7 +2,6 @@ package connectwise
 
 import (
 	"context"
-	"github.com/dsrosen6/go-connectwise-psa/types"
 	"net/http"
 	"os"
 	"testing"
@@ -30,7 +29,7 @@ func TestClient_ListBoards(t *testing.T) {
 	tests := []struct {
 		name    string
 		args    args
-		want    []types.Board
+		want    []Board
 		wantErr bool
 	}{
 		{

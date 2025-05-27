@@ -21,7 +21,7 @@ type doRequestResult struct {
 	statusCode int
 }
 
-func apiRequestNonPaginated[T any](ctx context.Context, client *Client, method, endpoint string, params *QueryParams, payload interface{}) (*T, error) {
+func ApiRequestNonPaginated[T any](ctx context.Context, client *Client, method, endpoint string, params *QueryParams, payload any) (*T, error) {
 	if params != nil {
 		endpoint = addQueryParams(endpoint, *params)
 	}
@@ -53,7 +53,7 @@ func apiRequestNonPaginated[T any](ctx context.Context, client *Client, method, 
 	return &target, nil
 }
 
-func apiRequestPaginated[T any](ctx context.Context, c *Client, method, endpoint string, params *QueryParams, payload interface{}) ([]T, error) {
+func ApiRequestPaginated[T any](ctx context.Context, c *Client, method, endpoint string, params *QueryParams, payload any) ([]T, error) {
 	if params != nil {
 		endpoint = addQueryParams(endpoint, *params)
 	}
@@ -141,7 +141,7 @@ func (c *Client) setStandardHeaders(req *http.Request) {
 	req.Header.Set("Authorization", c.encodedCreds)
 }
 
-func marshalBody(body interface{}) (io.Reader, error) {
+func marshalBody(body any) (io.Reader, error) {
 	if body == nil {
 		return nil, nil
 	}
