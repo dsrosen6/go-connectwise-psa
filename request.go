@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -77,7 +76,6 @@ func ApiRequestPaginated[T any](ctx context.Context, c *Client, method, endpoint
 }
 
 func (c *Client) doPaginatedRequest(ctx context.Context, method, fullUrl string, body io.Reader, handlePage func(data []byte) error) error {
-	log.Println("URL: ", fullUrl)
 	for {
 		result, err := c.doRequest(ctx, method, fullUrl, body)
 		if err != nil {
@@ -118,7 +116,7 @@ func (c *Client) doRequest(ctx context.Context, method, fullUrl string, body io.
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
-			log.Printf("error closing response body: %v", err)
+			// TODO: handle this
 		}
 	}(res.Body)
 
