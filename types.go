@@ -201,6 +201,26 @@ type Board struct {
 	} `json:"_info"`
 }
 
+type Callback struct {
+	Id                   int    `json:"id"`
+	Description          string `json:"description"`
+	Url                  string `json:"url"`
+	ObjectId             int    `json:"objectId"`
+	Type                 string `json:"type"`
+	Level                string `json:"level"`
+	MemberId             int    `json:"memberId"`
+	PayloadVersion       string `json:"payloadVersion"`
+	InactiveFlag         bool   `json:"inactiveFlag"`
+	IsSoapCallbackFlag   bool   `json:"isSoapCallbackFlag"`
+	IsSelfSuppressedFlag bool   `json:"isSelfSuppressedFlag"`
+	ConnectWiseID        string `json:"connectWiseID"`
+	Info                 struct {
+		AdditionalProp1 string `json:"additionalProp1"`
+		AdditionalProp2 string `json:"additionalProp2"`
+		AdditionalProp3 string `json:"additionalProp3"`
+	} `json:"_info"`
+}
+
 type Company struct {
 	Id         int    `json:"id"`
 	Identifier string `json:"identifier"`
