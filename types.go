@@ -140,6 +140,43 @@ type Board struct {
 		UtilizationFlag bool        `json:"utilizationFlag,omitempty"`
 	} `json:"workType,omitempty"`
 }
+
+type BoardStatus struct {
+	Info  interface{} `json:"_info,omitempty"`
+	Board struct {
+		Info interface{} `json:"_info,omitempty"`
+		ID   int         `json:"id,omitempty"`
+		Name string      `json:"name,omitempty"`
+	} `json:"board,omitempty"`
+	ClosedStatus              bool   `json:"closedStatus,omitempty"`
+	CustomStatusIndicatorName string `json:"customStatusIndicatorName,omitempty"`
+	CustomerPortalDescription string `json:"customerPortalDescription,omitempty"`
+	CustomerPortalFlag        bool   `json:"customerPortalFlag,omitempty"`
+	DefaultFlag               bool   `json:"defaultFlag,omitempty"`
+	DisplayOnBoard            bool   `json:"displayOnBoard,omitempty"`
+	EmailTemplate             struct {
+		Info       interface{} `json:"_info,omitempty"`
+		ID         int         `json:"id,omitempty"`
+		Identifier string      `json:"identifier,omitempty"`
+		Name       string      `json:"name,omitempty"`
+		Type       string      `json:"type,omitempty"`
+	} `json:"emailTemplate,omitempty"`
+	EscalationStatus   string `json:"escalationStatus,omitempty"`
+	ID                 int    `json:"id,omitempty"`
+	Inactive           bool   `json:"inactive,omitempty"`
+	Name               string `json:"name"`
+	RoundRobinCatchall bool   `json:"roundRobinCatchall,omitempty"`
+	SaveTimeAsNote     bool   `json:"saveTimeAsNote,omitempty"`
+	SortOrder          int    `json:"sortOrder,omitempty"`
+	StatusIndicator    struct {
+		Info       interface{} `json:"_info,omitempty"`
+		ID         int         `json:"id,omitempty"`
+		Identifier string      `json:"identifier,omitempty"`
+		Name       string      `json:"name,omitempty"`
+	} `json:"statusIndicator,omitempty"`
+	TimeEntryNotAllowed bool `json:"timeEntryNotAllowed,omitempty"`
+}
+
 type Callback struct {
 	Info                 interface{} `json:"_info,omitempty"`
 	ConnectWiseID        string      `json:"connectWiseID,omitempty"`
